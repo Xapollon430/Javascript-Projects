@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    font-family: Trebuchet MS;
+    height: 100vh;
+
+
+    display: grid;
+    justify-items: center;
+    align-content: center;
+}
+
+#btn {
+    margin-top: 20px;
+    width: 120px;
+    height: 40px;
+    background: transparent; 
+    color: skyblue;
+    border: 1px solid skyblue;
+    font-size: 24px;
+    cursor: pointer;
+    font-family: inherit;
+}

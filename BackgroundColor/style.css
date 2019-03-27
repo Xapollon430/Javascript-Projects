@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: monospace;
+    display: grid;
+    height: 100vh;
+    justify-items: center;
+    align-content: center;
+}
+
+#btn{
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    border-color: none;
+    background-color: burlywood;
+    color:darkslategray;
+    font-size: 22px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
