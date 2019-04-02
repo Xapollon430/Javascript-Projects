@@ -29,6 +29,9 @@ function generate(){
     }
  }
 
+var x = $("#last").val();
+
+console.log(x);
 
 
 

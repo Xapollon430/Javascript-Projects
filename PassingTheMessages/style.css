@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body{
+    display: grid;
+    font-family: monospace;
+    height: 100vh;
+
+    justify-items: center;
+    align-items: center;
+    background-color:cadetblue
+
+}
+
+.container{
+    background: #f0f0f0;
+    font-size: 24px;
+    display: grid;
+    padding: 20px;
+    text-align: center;
+    
+    grid-gap: 20px;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    justify-items: center;
+
+}
+/*BOX*/
+#btn{
+    width: 200px;
+    
+}
+
+input{
+    width: 100%;
+}
+
+.display{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+#toggle{
+    text-align: center;
+    color: #8b0000; 
+    background: #ff6961;
+}
