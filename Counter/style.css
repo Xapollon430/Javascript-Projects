@@ -47,7 +47,6 @@ img{
 }
 
 #num{
-
     grid-area: n;
     font-size: 48px;
 }
@@ -74,4 +73,16 @@ img{
 #increment{
     grid-area: i;
    
+}
+
+.red{
+    color:red;
+}
+
+.blue{
+    color:blue;
+}
+
+.white{
+    color:white;
 }

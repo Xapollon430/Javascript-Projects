@@ -27,13 +27,29 @@
             $("#decrement").on("click", () => {
                 count--;
                 $("#num").text(`${count}`)
+                
+                colorChecker();
 
             })
 
             $("#increment").on("click", () => {
                 count++;
                 $("#num").text(`${count}`)
+
+                colorChecker();
             })
+
+            function colorChecker(){
+                if (count > 0){
+                    $("#num").css("color","blue")
+                }
+                else if( count == 0){
+                    $("#num").css("color","white")
+                }
+                else{
+                    $("#num").css("color","red")
+                }
+            }
 
 
 
