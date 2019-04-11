@@ -41,13 +41,13 @@
 
             function colorChecker(){
                 if (count > 0){
-                    $("#num").css("color","blue")
+                    $("#num").removeClass().addClass("blue")
                 }
                 else if( count == 0){
-                    $("#num").css("color","white")
+                    $("#num").removeClass().addClass("white")
                 }
                 else{
-                    $("#num").css("color","red")
+                    $("#num").removeClass().addClass("red")
                 }
             }
 
