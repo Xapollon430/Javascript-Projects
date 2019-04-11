@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title of the document</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    </head>
+
+    <body>
+
+        <img src="video/pexels-photo-1634187.jpeg" alt="">
+
+        <div class="counter">
+            <p class="myCounter">Counter</p>
+            <p id="num">0</p>
+            <button id="decrement" class ="regularButton">Lower Count</button>
+            <button id="increment" class ="regularButton">Add Count</button>
+
+
+        </div>
+
+        <script>
+
+            let count = 0;
+
+            $("#decrement").on("click", () => {
+                count--;
+                $("#num").text(`${count}`)
+
+            })
+
+            $("#increment").on("click", () => {
+                count++;
+                $("#num").text(`${count}`)
+            })
+
+
+
+        </script>
+    </body>
+
+</html>

@@ -14,25 +14,34 @@ const quotes = [{quote : "Sometimes we make the process more complicated than we
 {quote : "When people show loyalty to you, you take care of those who are with you. It's how it goes with everything. If you have a small circle of friends, and one of those friends doesn't stay loyal to you, they don't stay your friend for very long.", author :"John Cena"}
 ];
 
-$("button").click(generate);   
+//$("button").click(generate);   
+//
+//let i = 0;
+//
+//function generate(){
+//    i++;
+//    
+//    $("span").text(quotes[i].quote);
+//    $("#author").text(quotes[i].author);
+//    
+//    if(i===quotes.length-1){
+//        i= 0;
+//    }
+// }
+//
+//var x = $("#last").val();
+//
+//console.log(x);
 
-let i = 0;
+let array = ["1212", 00, {
+    "ztn" :{
+    "yarrak": "true"
+},
+    "anan" : "zaten",
+    "bban" : true
+}]
 
-function generate(){
-    i++;
-    
-    $("span").text(quotes[i].quote);
-    $("#author").text(quotes[i].author);
-    
-    if(i===quotes.length-1){
-        i= 0;
-    }
- }
-
-var x = $("#last").val();
-
-console.log(x);
-
+console.log(array[2]["ztn"].yarrak)
 
 
 
