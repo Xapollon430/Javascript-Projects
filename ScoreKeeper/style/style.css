@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    height: 100vh;
+    
+}
+
+.vertical-horizontal-Center{
+    display: grid;
+    justify-items:center;
+    align-content: center;
+}
+
+
+
+
+
+.wrapper {
+    display: grid;
+    grid-template-areas:
+        "scores scores scores"
+        "pto      pto     pto"
+        "text    text    text "
+        " p1       p2   reset";
+    grid-column-gap: 10px;
+    
+}
+
+.scores{
+    grid-area: scores;
+    font-size: 5rem
+}
+
+.playingto{
+    grid-area: pto;
+}
+
+.scoreInput{
+    grid-area: text;
+    width: 100%;
+}
+
+.p1{
+    grid-area: p1;
+}
+
+.p2{
+    grid-area: p2;
+}
+
+.reset{
+    grid-area: reset;
+}
+
+
+
+
+

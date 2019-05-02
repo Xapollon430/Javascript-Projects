@@ -3,7 +3,7 @@
     <head>
         <title>Title of the document</title>
         <link rel="stylesheet" href="style.css">
-
+        <STYLE></STYLE>
     </head>
 
     <body>
@@ -33,38 +33,39 @@
         <script>
 
 
-            let keyArray = document.querySelectorAll(".key")
-            let audioArray = document.querySelectorAll("audio")
+            let dog = {
+                name: "Spot",
+                numLegs: 4,
+                sayLegs: function () {
+                    return`This dog has${this.numLegs} legs`;
+                }
+            };
 
-            window.addEventListener("keydown", (e)=>{
-
-                console.log(e.which)
-
-                for (let i=0; i<9; i++){
-
-                    let currentAudio = audioArray[i].getAttribute("data-key");
-
-                    let currentKey = keyArray[i].getAttribute("data-key");
-
-                    let currentTarget = e.which;
-
-                    if(currentKey==currentTarget){
-                        audioArray[i].currentTime = 0;
-
-                        audioArray[i].play();
-
-                        keyArray[i].classList.add("playing");
-
-                        setTimeout( () => {
-                            keyArray[i].classList.remove("playing");
-
-                        },70)
-                    }
-
-                }})
-
+            console.log(dog.sayLegs());
 
         </script>
     </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

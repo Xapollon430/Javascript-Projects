@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(img/bg.jpeg) top/cover;
+}
+
+.images{
+    width: 80%;
+    height: 70vh;
+
+    background: url('img/guy1.jpeg') center/cover no-repeat;
+    border-radius: 50px;
+    border: 2px solid white;
+
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: 1fr 10fr;
+    justify-content: center;
+
+    grid-template-areas: 
+        'p . n'
+        '. . .'
+}
+
+.prevButton{
+    grid-area: p;
+}
+
+.nextButton{
+    grid-area: n;
+}
+
+.prevButton:hover{
+    position: relative;
+    right: 5px;
+}
+
+.nextButton:hover{
+    position: relative;
+    left: 5px;
+}
+
+button{
+    font-family: monospace;
+    background-color: cadetblue;
+    outline: none;
+    cursor: pointer;
+    color:white;
+    font-size: 1.2rem;
+    border-style: none;
+    border-radius: 50px;
+} 
+
+

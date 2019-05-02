@@ -1,0 +1,153 @@
+*:focus {
+    outline: 0 !important;
+}
+/*  GLOBAL*/
+body{
+    margin: 0;
+    padding: 0;
+
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto auto 10fr;
+    font-family: Trebuchet MS;
+}
+
+/*TOP*/
+
+.display{
+    text-align: center;
+    background-color:rgb(65,120,170); 
+    font-size: 2rem;
+    color: white;
+}
+
+span{
+    font-size: 3rem;
+}
+/*BUTTONS*/
+button{
+    background: white;
+    border: none;
+    color: rgb(65,120,170);
+    font-weight: 700;
+}
+
+button:hover{
+    background: rgb(65,120,170);
+    color: white;
+}
+
+.options{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    grid-template-areas: 
+        ". . . . newcolor . . easy hard . . .";
+}
+
+#newColors {
+    grid-area: newcolor;
+    white-space:nowrap;
+}
+
+#easy{
+    justify-self:end;
+    grid-area: easy;
+}
+
+#hard{
+    justify-self:start;
+    grid-area: hard;
+}
+
+
+/*COLORS*/
+
+.colors{
+    padding-top: 20px;
+    background-color:rgb(31,31,31);
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 150px 150px 150px 1fr 1fr;
+    grid-template-rows: 150px 150px 1fr;
+
+    grid-template-areas:
+        ". . c1 c2 c3 . ."
+        ". . c4 c5 c6 . ."
+        ". .  .  .  . . .";
+    grid-gap: 20px;
+}
+
+.colors div{
+    border-radius: 30px;
+}
+
+.color1{
+    grid-area: c1;
+    background-color: red;
+}
+
+.color2{
+    grid-area: c2;
+    background-color: blue;
+
+}
+
+.color3{
+    grid-area: c3;
+    background-color: orange;
+
+}
+
+.color4{
+    grid-area: c4;
+    background-color: yellow;
+
+}
+
+.color5{
+    grid-area: c5;
+    background-color: green;
+
+}
+
+.color6{
+    grid-area: c6;
+    background-color: purple;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
