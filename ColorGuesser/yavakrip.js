@@ -26,56 +26,48 @@ for (let i = 0; i < 6; i++) {
 color1.addEventListener("click", () => {
     if (checkWinner(color1.style.backgroundColor))
         gameIsDone(color1.style.backgroundColor);
+    else
+        makeBoxDisappear(color1);
 })
 
 color2.addEventListener("click", () => {
     if (checkWinner(color2.style.backgroundColor))
         gameIsDone(color2.style.backgroundColor)
+    else
+        makeBoxDisappear(color2);
 })
 
 color3.addEventListener("click", () => {
     if (checkWinner(color3.style.backgroundColor))
         gameIsDone(color3.style.backgroundColor)
+    else
+        makeBoxDisappear(color3);
 })
 
 color4.addEventListener("click", () => {
     if (checkWinner(color4.style.backgroundColor))
         gameIsDone(color4.style.backgroundColor)
+    else
+        makeBoxDisappear(color4);
 })
 
 color5.addEventListener("click", () => {
     if (checkWinner(color5.style.backgroundColor))
         gameIsDone(color5.style.backgroundColor)
+    else
+        makeBoxDisappear(color5);
 })
 
 color6.addEventListener("click", () => {
     if (checkWinner(color6.style.backgroundColor))
         gameIsDone(color6.style.backgroundColor);
+    else
+        makeBoxDisappear(color6);
 })
 
-easyButton.addEventListener("click", () => {
-    let rgbArray = [];
-    makeThreeColors(rgbArray);
-    updateColors(rgbArray, 3);
-    let winnerNumber = Math.floor((Math.random() * 2));
-    //picking a random color as a winner
-    console.log(rgbArray[winnerNumber]);
-    winnerColor = `rgb(${rgbArray[winnerNumber].join(", ")})`;
-    //Putting the rgb in the title
-    title.innerHTML = `RGB (${rgbArray[winnerNumber].join(", ")})`;
-})
+easyButton.addEventListener("click", easyButtonCallBack)
 
-hardButton.addEventListener("click", () => {
-    let rgbArray = [];
-    makeButtonsDisappear();
-    makeSixColors(rgbArray);
-    updateColors(rgbArray, 6);
-    let winnerNumber = Math.floor((Math.random() * 6));
-    console.log(rgbArray[winnerNumber]);
-    winnerColor = `rgb(${rgbArray[winnerNumber].join(", ")})`;
-    title.innerHTML = `RGB (${rgbArray[winnerNumber].join(", ")})`;
-
-})
+hardButton.addEventListener("click", hardButtonCallBack)
 
 
 newColors.addEventListener("click", () => { //resets the game
@@ -86,8 +78,35 @@ newColors.addEventListener("click", () => { //resets the game
     hardButton.style.display = "";
     titleBackground.style.backgroundColor = `rgb(65,120,170)`;
     title.innerHTML = "RGB";
+    
+    easyButtonCallBack();
+    
 
 })
+
+function easyButtonCallBack(){
+    clearBoxes();
+    let rgbArray = [];
+    makeThreeColors(rgbArray);
+    updateColors(rgbArray, 3);
+    let winnerNumber = Math.floor((Math.random() * 2));
+    //picking a random color as a winner
+    console.log(rgbArray[winnerNumber]);
+    winnerColor = `rgb(${rgbArray[winnerNumber].join(", ")})`;
+    //Putting the rgb in the title
+    title.innerHTML = `RGB (${rgbArray[winnerNumber].join(", ")})`;
+}
+
+function hardButtonCallBack(){
+     clearBoxes(); 
+    let rgbArray = [];
+    makeSixColors(rgbArray);
+    updateColors(rgbArray, 6);
+    let winnerNumber = Math.floor((Math.random() * 6));
+    console.log(rgbArray[winnerNumber]);
+    winnerColor = `rgb(${rgbArray[winnerNumber].join(", ")})`;
+    title.innerHTML = `RGB (${rgbArray[winnerNumber].join(", ")})`;
+}
 
 function checkWinner(color) {
     console.log(color)
@@ -150,10 +169,22 @@ function makeButtonsDisappear() { //Makes the buttons go away after the player c
 
 function gameIsDone(color) {
     allColors.forEach((box) => {
-        box.style.display = "";
-        box.style.backgroundColor = color;
+        $(box).fadeIn(); //makes all the boxes appear
+        box.style.backgroundColor = color; //gives them all the winning color
     })
 
     titleBackground.style.backgroundColor = color;
     title.innerHTML = "You Won";
 }
+
+function makeBoxDisappear(box) { //makes box disappear if its a wrong guess
+    $(box).fadeOut();
+}
+
+function clearBoxes() {
+    allColors.forEach((box) => {
+        box.style.display = "none"; //makes all the boxes appear
+    }) 
+    titleBackground.style.backgroundColor = `rgb(65,120,170)`; //resets boxes and background color;
+}
+
