@@ -19,51 +19,18 @@ let title = document.querySelector("span");
 let titleBackground = document.querySelector(".display")
 
 for (let i = 0; i < 6; i++) {
-    allColors[i].style.display = "none";
+    allColors[i].style.backgroundColor = "white";
 }
 
 //When one of the boxes are clicked, it checks for a winner
-color1.addEventListener("click", () => {
-    if (checkWinner(color1.style.backgroundColor))
-        gameIsDone(color1.style.backgroundColor);
-    else
-        makeBoxDisappear(color1);
-})
-
-color2.addEventListener("click", () => {
-    if (checkWinner(color2.style.backgroundColor))
-        gameIsDone(color2.style.backgroundColor)
-    else
-        makeBoxDisappear(color2);
-})
-
-color3.addEventListener("click", () => {
-    if (checkWinner(color3.style.backgroundColor))
-        gameIsDone(color3.style.backgroundColor)
-    else
-        makeBoxDisappear(color3);
-})
-
-color4.addEventListener("click", () => {
-    if (checkWinner(color4.style.backgroundColor))
-        gameIsDone(color4.style.backgroundColor)
-    else
-        makeBoxDisappear(color4);
-})
-
-color5.addEventListener("click", () => {
-    if (checkWinner(color5.style.backgroundColor))
-        gameIsDone(color5.style.backgroundColor)
-    else
-        makeBoxDisappear(color5);
-})
-
-color6.addEventListener("click", () => {
-    if (checkWinner(color6.style.backgroundColor))
-        gameIsDone(color6.style.backgroundColor);
-    else
-        makeBoxDisappear(color6);
-})
+for (let i = 0; i < allColors.length; i++) {
+    allColors[i].addEventListener('click', () => {
+        if (checkWinner(allColors[i].style.backgroundColor))
+            gameIsDone(allColors[i].style.backgroundColor)
+        else
+            makeBoxDisappear(allColors[i] );
+    })
+}
 
 easyButton.addEventListener("click", easyButtonCallBack)
 
@@ -78,13 +45,13 @@ newColors.addEventListener("click", () => { //resets the game
     hardButton.style.display = "";
     titleBackground.style.backgroundColor = `rgb(65,120,170)`;
     title.innerHTML = "RGB";
-    
+
     easyButtonCallBack();
-    
+
 
 })
 
-function easyButtonCallBack(){
+function easyButtonCallBack() {
     clearBoxes();
     let rgbArray = [];
     makeThreeColors(rgbArray);
@@ -97,8 +64,8 @@ function easyButtonCallBack(){
     title.innerHTML = `RGB (${rgbArray[winnerNumber].join(", ")})`;
 }
 
-function hardButtonCallBack(){
-     clearBoxes(); 
+function hardButtonCallBack() {
+    clearBoxes();
     let rgbArray = [];
     makeSixColors(rgbArray);
     updateColors(rgbArray, 6);
@@ -184,7 +151,6 @@ function makeBoxDisappear(box) { //makes box disappear if its a wrong guess
 function clearBoxes() {
     allColors.forEach((box) => {
         box.style.display = "none"; //makes all the boxes appear
-    }) 
+    })
     titleBackground.style.backgroundColor = `rgb(65,120,170)`; //resets boxes and background color;
 }
-
