@@ -1,11 +1,9 @@
+
+
+
+
 // BOXES
 let allColors = document.querySelectorAll(".color");
-let color1 = document.querySelector(".color1");
-let color2 = document.querySelector(".color2");
-let color3 = document.querySelector(".color3");
-let color4 = document.querySelector(".color4");
-let color5 = document.querySelector(".color5");
-let color6 = document.querySelector(".color6");
 
 let winnerColor;
 
@@ -58,7 +56,6 @@ function easyButtonCallBack() {
     updateColors(rgbArray, 3);
     let winnerNumber = Math.floor((Math.random() * 2));
     //picking a random color as a winner
-    console.log(rgbArray[winnerNumber]);
     winnerColor = `rgb(${rgbArray[winnerNumber].join(", ")})`;
     //Putting the rgb in the title
     title.innerHTML = `RGB (${rgbArray[winnerNumber].join(", ")})`;
@@ -70,15 +67,11 @@ function hardButtonCallBack() {
     makeSixColors(rgbArray);
     updateColors(rgbArray, 6);
     let winnerNumber = Math.floor((Math.random() * 6));
-    console.log(rgbArray[winnerNumber]);
     winnerColor = `rgb(${rgbArray[winnerNumber].join(", ")})`;
     title.innerHTML = `RGB (${rgbArray[winnerNumber].join(", ")})`;
 }
 
 function checkWinner(color) {
-    console.log(color)
-    console.log(winnerColor)
-
     if (color === winnerColor)
         return true;
 }
@@ -105,9 +98,10 @@ function makeThreeColors(rgbArray) { //Same as above but for only 3 colors
             tempArray[i] = Math.floor((Math.random() * 256));
         }
         rgbArray[j] = [...tempArray];
+        
 
     }
-
+   
 
 }
 
