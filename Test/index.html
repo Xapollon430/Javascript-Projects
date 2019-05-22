@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>City Filter</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    
+    <input type="text" id="form">
+    <button class="btn">Add here</button>
+    
+    <div class="content">
+        <div class="todo">Take the dog out for a walk</div>
+        <div class="todo">Take the dog out for a walk</div>
+        <div class="todo">Take the dog out for a walk</div>
+    </div>
+    
+    
+    
+    
+    
+    <script>
+     
+            let button = document.querySelector(".btn");
+        
+            button.addEventListener('click', () => {
+                let newTodo = document.querySelector('#form').value;
+                let newDiv = document.createElement('div');
+                newDiv.classList.add('todo')
+                let divTextValue = document.createTextNode(newTodo);
+                
+                newDiv.appendChild(divTextValue);
+                document.querySelector('.content').appendChild(newDiv);
+            })
+        
+        
+      
+    </script>
+</body>
+
+
+</html>
