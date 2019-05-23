@@ -9,32 +9,30 @@
 
 <body>
     
-    <input type="text" id="form">
-    <button class="btn">Add here</button>
-    
-    <div class="content">
-        <div class="todo">Take the dog out for a walk</div>
-        <div class="todo">Take the dog out for a walk</div>
-        <div class="todo">Take the dog out for a walk</div>
+   <div class="landing">
+        <div class="nav">
+
+            <img src="img/logo.png" class="logo" alt="">
+
+            <button class="sign-in">Sign In</button>
+
+        </div>
+
+        <div class="showcase">
+           
+            <h1 class="title1">See what's next.</h1>
+            <h3 class="title2">WATCH ANYWHERE. CANCEL ANYTIME.</h3>
+            <button>WATCH FREE FOR 30 DAYS</button>
+
+        </div>
     </div>
-    
     
     
     
     
     <script>
      
-            let button = document.querySelector(".btn");
-        
-            button.addEventListener('click', () => {
-                let newTodo = document.querySelector('#form').value;
-                let newDiv = document.createElement('div');
-                newDiv.classList.add('todo')
-                let divTextValue = document.createTextNode(newTodo);
-                
-                newDiv.appendChild(divTextValue);
-                document.querySelector('.content').appendChild(newDiv);
-            })
+     
         
         
       

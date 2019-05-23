@@ -66,9 +66,9 @@ i {
 /*HERO*/
 
 .showcase {
-    height: 300px;
+    height: 50%;
     display: grid;
-    grid-template-rows: 3fr 1fr 3fr;
+    grid-template-rows: 1fr 1fr 1fr;
     ;
     grid-template-areas:
         "title1"
@@ -77,8 +77,8 @@ i {
 
     color: white;
     justify-content: center;
+    padding-bottom: 150px;
     z-index: 2;
-    margin: auto 0;
 }
 
 .title1 {
@@ -87,7 +87,6 @@ i {
     font-size: 60px;
     align-self: flex-end;
     justify-self: center;
-    margin: 0
 }
 
 .title2 {
@@ -104,4 +103,31 @@ i {
     color: white;
     font-size: 24px;
     border: none;
+}
+
+/*MID-TABS*/
+
+.mid-bar {
+    height: 150px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        ". first second third .";
+    text-align: center;
+    align-content: center;
+
+    color: rgb(162, 162, 162);
+    background: rgb(20,20,20)
+}
+
+.first-tab {
+    grid-area: first;
+}
+
+.second-tab {
+    grid-area: second;
+}
+
+.third-tab {
+    grid-area: third;
 }
