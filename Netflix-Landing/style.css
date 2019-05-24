@@ -2,6 +2,8 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    background: #000;
+
 }
 
 button:focus {
@@ -10,6 +12,29 @@ button:focus {
 
 i {
     margin: 25px 0px 10px 0px;
+}
+
+ul{
+    list-style: none;
+}
+
+.text-lg {
+    font-size: 2rem;
+}
+
+.text-md {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.tab-container {
+    width: 80%;
+}
+
+.netflix-btn {
+    background-color: rgb(206, 1, 31);
+    color: white;
+    border: none;
 }
 
 /*LANDING PAGE*/
@@ -22,7 +47,7 @@ i {
     grid-template-rows: 1fr 8fr;
 }
 
-.landing::after{
+.landing::after {
     position: absolute;
     content: '';
     height: 100%;
@@ -30,7 +55,7 @@ i {
     top: 0;
     left: 0;
     z-index: 1;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     box-shadow: inset 120px 100px 250px #000000, inset -120px -100px 250px #000000;
 }
 
@@ -55,8 +80,7 @@ i {
 .sign-in {
     grid-area: btn;
     color: white;
-    background-color: rgb(206, 1, 31);
-    border: none;
+
     width: 100px;
     height: 35px;
     border-radius: 10px;
@@ -66,9 +90,8 @@ i {
 /*HERO*/
 
 .showcase {
-    height: 50%;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 1fr 3fr;
     ;
     grid-template-areas:
         "title1"
@@ -96,19 +119,18 @@ i {
 }
 
 .showcase button {
-    background-color: rgb(206, 1, 31);
     grid-area: button;
     align-self: flex-start;
     height: 80px;
     color: white;
     font-size: 24px;
-    border: none;
+
 }
 
 /*MID-TABS*/
 
 .mid-bar {
-    height: 150px;
+    padding-top: 90px: height: 150px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
@@ -117,7 +139,7 @@ i {
     align-content: center;
 
     color: rgb(162, 162, 162);
-    background: rgb(20,20,20)
+    background: rgb(20, 20, 20)
 }
 
 .first-tab {
@@ -130,4 +152,166 @@ i {
 
 .third-tab {
     grid-area: third;
+}
+
+.red-bottom {
+    border-bottom: 4px solid rgb(206, 1, 31);
+}
+
+.mid-bar div:hover {
+    color: white;
+}
+
+
+
+
+
+
+/*CONTENT*/
+
+.content-tabs img {
+    width: 100%;
+}
+
+.content-tabs {
+    display: grid;
+    justify-items: center;
+    padding: 5rem 0;;
+    color: white;
+
+}
+
+.content-1-tab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+/*CONTENT 2*/ /*CONTENT 2*/ /*CONTENT 2*/ /*CONTENT 2*/ 
+.tab-2-title {
+    color: rgb(253, 253, 253)
+}
+
+.tab-2-paragraph {
+    color: rgb(153, 153, 153)
+}
+
+.content-2-tab{
+        padding: 5rem 0;;
+}
+
+.content-2-tab-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.content-2-tab-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    align-items: center;
+}
+
+/*CONTENT 3*/ /*CONTENT 3*/ /*CONTENT 3*/ /*CONTENT 3*/ /*CONTENT 3*/ 
+.content-3-tab{
+        padding: 5rem 0;
+}
+
+.content-3-tab-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items:center;
+}
+
+.table {
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table thead th {
+    text-transform: uppercase;
+    padding: 0.8rem;
+    border: none;
+
+}
+
+.table-div{
+}
+
+.table tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border: none;
+
+}
+
+.table tbody tr td,
+th {
+    color: #999;
+    padding: 0.8rem 1.2rem;
+    text-align: center;
+    border: none;
+
+}
+
+.table tbody tr td:first-child {
+    text-align: left;
+}
+
+.table tbody tr:nth-child(odd) {
+    background: #222;
+}
+
+/*FOOTER*/ /*FOOTER*/ /*FOOTER*/
+
+
+
+
+.footer{
+    margin-bottom: 50px;
+}
+
+.footer p {
+    text-align: center;
+}
+
+.footer,
+.footer a {
+	color: #999;
+	font-size: 0.9rem;
+}
+
+.footer p {
+	margin-bottom: 1.5rem;
+}
+
+.footer .footer-cols {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 2rem;
+}
+
+.footer li {
+	line-height: 1.9;
+}
+
+.footer .lang-select {
+	margin-top: 2rem;
+	color: #999;
+	background-color: #000;
+	background-image: none;
+	border: 1px solid #333;
+	padding: 1rem 1.2rem;
+	border-radius: 5px;
+}
+
+.hide{
+    display: none; 
 }
