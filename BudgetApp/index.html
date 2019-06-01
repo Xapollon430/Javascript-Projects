@@ -2,31 +2,136 @@
 <html>
 
 <head>
-    <title>Title of the document</title>
-
-
-    <style>
-        #grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: 10px;
-        }
-
-        #grid>div {
-            background-color: lime;
-        }
-
-    </style>
-
+    <title>Budget App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="grid">
-        <div>anan</div>
-        <div>123</div>
-        <div>3333</div>
 
-    </div>
+    <section class="top">
+        <div class="top-wrapper">
+            <span class="white-text text-nowrap">Avaliable Budget in March 2019</span>
+            <span id="budget" class="white-text"> 0</span>
+            <div class="green-background px-2 pt-2 rounded white-text">Income <span id="income-budget">0 </span></div>
+
+            <div class="red-background px-2 pt-2 rounded white-text">Expenses <span id="expenses-budget">0</span></div>
+        </div>
+    </section>
+
+    <section class="mid">
+        <div class="mid-wrapper">
+            <div class="form-group">
+                <select class="form-control" id="picker">
+                    <option>-</option>
+                    <option>+</option>
+                </select>
+            </div>
+
+            <input class="form-control" type="text" placeholder="Description" id="description">
+            <input class="form-control" type="text" placeholder="Value" id="value-money">
+            <button type="button" class="btn btn-outline-secondary" id="submit-money">Add</button>
+        </div>
+    </section>
+
+    <section class="bottom">
+        <div class="bottom-wrapper">
+
+            <div id="income-bottom">
+                <h5 class="green-text">Income</h5>
+
+
+            </div>
+
+            <div id="expense-bottom">
+                <h5 class="red-text">Expenses</h5>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+        let picker = document.querySelector('#picker');
+        let description = document.querySelector('#description')
+        let money = document.querySelector('#value-money');
+        let submitButton = document.querySelector('#submit-money')
+        let budgetDisplay = document.querySelector('#budget')
+        let incomeBudgetDisplay = document.querySelector('#income-budget')
+        let expensesBudgetDisplay = document.querySelector('#expenses-budget')
+        let incomeBottomDiv = document.querySelector('#income-bottom')
+        let expenseBottomDiv = document.querySelector('#expense-bottom')
+
+        let budget = 0;
+        let income = 0;
+        let expenses = 0;
+
+
+        submitButton.addEventListener('click', () => {
+            pickerValue = picker.value;
+            descriptionValue = description.value;
+            moneyValue = money.value;
+
+            if (descriptionValue != "" && moneyValue != 0) { //Checking values to not send empty values
+                makeNode(pickerValue, descriptionValue, moneyValue);
+            } else {
+                //                Implement error message
+            }
+
+
+            if (pickerValue == "+") { //Updating the top UI
+                income += Number(moneyValue);
+                incomeBudgetDisplay.textContent = "+" + String(income);
+                budget += Number(moneyValue);
+                budgetDisplay.textContent = budget;
+
+            } else {
+                expenses -= Number(moneyValue);
+                expensesBudgetDisplay.textContent = String(expenses);
+                budget -= Number(moneyValue);
+                budgetDisplay.textContent = budget;
+            }
+
+        })
+
+
+        function makeNode(pickerValue, descriptionValue, moneyValue) {
+            let outerDiv = document.createElement('div') //Creating a div to append 
+
+            if (pickerValue === "+") { //checking if user wants to add to EXPENSES or INCOME
+                outerDiv.innerHTML = `<span>${descriptionValue}</span>
+                    <span class="green-text">${pickerValue +" "+moneyValue}</span>
+                    <button type="button" class="btn btn-warning ">X</button>`;
+                outerDiv.classList.add('income-item');
+
+                incomeBottomDiv.append(outerDiv);
+            } else { //checking if user wants to add to EXPENSES or INCOME
+                outerDiv.innerHTML = `<span>${descriptionValue}</span>
+                    <span class="red-text">${pickerValue +" "+moneyValue}</span>
+                    <button type="button" class="btn btn-warning ">X</button>`;
+                outerDiv.classList.add('expense-item');
+
+                expenseBottomDiv.append(outerDiv);
+            }
+
+            makeEvent(outerDiv);
+
+
+
+        }
+
+        function makeEvent(div) {
+            div.addEventListener('click', (e) => {
+                if (e.target.classList.contains("btn")) {
+                    e.target.parentNode.parentNode.removeChild(e.target.parentNode)
+                }
+            })
+
+        }
+
+    </script>
+
 </body>
 
 </html>

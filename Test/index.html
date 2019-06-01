@@ -2,42 +2,87 @@
 <html>
 
 <head>
-    <title>City Filter</title>
-    <link rel="stylesheet" href="style.css">
-
+    <title>Title of the document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    
+   
 </head>
 
 <body>
-    
-   <div class="landing">
-        <div class="nav">
+  <div class="container " style="position: relative;">
+    <canvas id="myChart"></canvas>
+  </div>
 
-            <img src="img/logo.png" class="logo" alt="">
-
-            <button class="sign-in">Sign In</button>
-
-        </div>
-
-        <div class="showcase">
-           
-            <h1 class="title1">See what's next.</h1>
-            <h3 class="title2">WATCH ANYWHERE. CANCEL ANYTIME.</h3>
-            <button>WATCH FREE FOR 30 DAYS</button>
-
-        </div>
-    </div>
+  <script>
     
-    
-    
-    
-    <script>
-     
-     
+    fetch("https://dog.ceo/api/breeds/image/random")
+      .then( response => { 
+        let array = []
+        for(let i=0; i<5;i++){
+            array.push(response.status)
+        }
         
         
+        graphApi(array)
+    })
       
-    </script>
+
+      
+    function graphApi(array){
+      
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart = new Chart(myChart, {
+      type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+        datasets:[{
+          label:'Population',
+          data:array,
+          //backgroundColor:'green',
+          backgroundColor:[
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.6)'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Largest Cities In Massachusetts',
+          fontSize:25
+        },
+        legend:{
+          display:true,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+      
+      }
+    });
+        
+    }
+  </script>
+  
+  
 </body>
 
-
+    
 </html>
